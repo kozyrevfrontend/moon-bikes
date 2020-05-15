@@ -1,0 +1,53 @@
+.user-form {
+  input {
+    display: block;
+    width: 100%;
+    min-width: 225px;
+    min-height: 48px;
+    padding: 0;
+    padding-top: 10px;
+    padding-left: 28px;
+    padding-right: 28px;
+    margin-bottom: 20px;
+
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $font-color-input;
+
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    background-color: $font-color-primery-light;
+
+    &[type="tel"] {
+      border-radius: 6px;
+    }
+
+    &:focus,
+    &:active {
+      color: $font-color-primery-dark;
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .user-form {
+    input {
+      padding-top: 8px;
+      padding-left: 21px;
+      padding-right: 21px;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .user-form {
+    input {
+      padding-left: 26px;
+      padding-right: 26px;
+
+      outline: none;
+    }
+  }
+}

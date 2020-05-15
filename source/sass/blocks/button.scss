@@ -1,0 +1,96 @@
+.button {
+  display: block;
+  padding: 0;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 14px;
+  color: $font-color-primery-dark;
+
+  border: none;
+  background-color: $theme-color;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.7;
+  }
+
+  &--submit {
+    width: 99.5%;
+    min-height: 51px;
+
+    border-radius: 6px;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .button {
+    &--submit {
+      width: 100%;
+    }
+  }
+
+  .page-header__nav--closed ~ .button {
+    &--toggle {
+      display: block;
+      width: 50px;
+      height: 50px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: 19px;
+        left: 14px;
+
+        width: 23px;
+        height: 1px;
+
+        background-color: $font-color-primery-dark;
+        box-shadow: 0 5px 0 0 $font-color-primery-dark, 0 11px 0 0 $font-color-primery-dark;
+      }
+    }
+  }
+
+  .page-header__nav--opened ~ .button {
+    &--toggle {
+      display: block;
+      width: 50px;
+      height: 50px;
+
+      background-color: $font-color-primery-light;
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        top: 26px;
+        left: 10px;
+
+        width: 31px;
+        height: 1px;
+
+        background-color: $toggle-color;
+      }
+
+      &::before {
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .button {
+    outline: none;
+  }
+}
