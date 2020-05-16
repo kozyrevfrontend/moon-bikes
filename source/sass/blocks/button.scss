@@ -27,12 +27,32 @@
 
     border-radius: 6px;
   }
+
+  &--play {
+    width: 65px;
+    height: 65px;
+
+    border-radius: 50%;
+    background-image: url("../img/icon-play.svg");
+    background-repeat: no-repeat;
+    background-position: 29px center;
+  }
 }
 
 @media (max-width: $tablet-width) {
   .button {
     &--submit {
       width: 100%;
+    }
+
+    &--play {
+      width: 90px;
+      height: 90px;
+
+      border-radius: 50%;
+      background-image: url("../img/icon-play-tablet.svg");
+      background-repeat: no-repeat;
+      background-position: 40px center;
     }
   }
 
@@ -92,5 +112,13 @@
 @media (max-width: $mobile-width) {
   .button {
     outline: none;
+
+    &--play {
+      width: 65px;
+      height: 65px;
+
+      background-image: url("../img/icon-play.svg");
+      background-position: 29px center;
+    }
   }
 }

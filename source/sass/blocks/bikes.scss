@@ -173,6 +173,10 @@
 }
 
 @media (max-width: $tablet-width) {
+  .bikes {
+    min-height: 949px;
+  }
+
   .bikes__list {
     width: 86.46%;
     justify-content: center;
@@ -275,7 +279,7 @@
     margin-bottom: 42px;
 
     &:last-child {
-      margin-bottom: 55px;
+      margin-bottom: 54px;
     }
   }
 
