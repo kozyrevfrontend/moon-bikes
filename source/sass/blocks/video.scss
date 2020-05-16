@@ -20,6 +20,8 @@
   margin: 0;
   margin-bottom: 20px;
   padding-top: 121px;
+  padding-left: 37.5%;
+  padding-right: 38.19%;
 
   text-align: center;
   font-size: 30px;
@@ -39,7 +41,7 @@
   font-weight: 300;
   line-height: 28px;
   letter-spacing: -0.005em;
-  color: $font-color-video;
+  color: $font-color-text;
 }
 
 .video__container {
@@ -101,6 +103,13 @@
 
 .video__button {
   display: none;
+}
+
+@media (max-width: $desktop-width-only-wide) {
+  .video__title {
+    padding-left: 0;
+    padding-right: 0;
+  }
 }
 
 @media (max-width: $tablet-width) {
