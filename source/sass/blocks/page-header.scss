@@ -1,5 +1,5 @@
 .page-header {
-  min-height: 825px;
+  padding-bottom: 239px;
 
   background-color: $font-color-primery-dark;
   background-image: url("../img/bg-header-desktop@1x.jpg");
@@ -58,7 +58,7 @@
 
 @media (max-width: $tablet-width) {
   .page-header {
-    min-height: 683px;
+    padding-bottom: 0;
 
     background: none;
   }

@@ -30,17 +30,13 @@
 
 @media (max-width: $tablet-width) {
   .site-list {
-    display: block;
     padding-top: 100px;
     padding-bottom: 106px;
-  }
-
-  .page-header__nav--opened .site-list {
     background-color: #ffffff;
-  }
 
-  .page-header__nav--closed .site-list {
-    display: none;
+    &--nav-closed {
+      display: none;
+    }
   }
 
   .site-list__item {
@@ -76,12 +72,11 @@
   }
 
   .site-list__link {
+    display: block;
+    width: 100%;
     color: $font-color-nav-mobile;
 
-    &:hover {
-      opacity: 1;
-    }
-
+    &:hover,
     &:active {
       opacity: 1;
     }
