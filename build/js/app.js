@@ -1,33 +1,19 @@
 'use strict';
 
 // Меню-бургер
-$('.button--toggle').show().classAdd('.button--nav-closed').on('click', function () {
-  $('.page-header__nav').show();
+var navMain = $('.page-header__nav').addClass('page-header__nav--closed');
+var siteList = $('.site-list').addClass('site-list--nav-closed');
+var navToggle = $('.button--toggle').addClass('button--nav-closed').on('click', function () {
+  if (navMain.hasClass('page-header__nav--closed')) {
+    navMain.removeClass('page-header__nav--closed').addClass('page-header__nav--opened');
+    navToggle.removeClass('button--nav-closed').addClass('button--nav-opened');
+    siteList.removeClass('site-list--nav-closed');
+  } else {
+    navMain.addClass('page-header__nav--closed').removeClass('page-header__nav--opened');
+    navToggle.addClass('button--nav-closed').removeClass('button--nav-opened');
+    siteList.addClass('site-list--nav-closed');
+  }
 });
-
-// var navMain = document.querySelector('.page-header__nav');
-// var navToggle = document.querySelector('.button--toggle');
-// var siteList = document.querySelector('.site-list');
-
-// navMain.classList.add('page-header__nav--closed');
-// navToggle.classList.add('button--nav-closed');
-// siteList.classList.add('site-list--nav-closed');
-
-// navToggle.addEventListener('click', function () {
-//   if (navMain.classList.contains('page-header__nav--closed')) {
-//     navMain.classList.remove('page-header__nav--closed');
-//     navMain.classList.add('page-header__nav--opened');
-//     navToggle.classList.remove('button--nav-closed');
-//     navToggle.classList.add('button--nav-opened');
-//     siteList.classList.remove('site-list--nav-closed');
-//   } else {
-//     navMain.classList.add('page-header__nav--closed');
-//     navMain.classList.remove('page-header__nav--opened');
-//     navToggle.classList.add('button--nav-closed');
-//     navToggle.classList.remove('button--nav-opened');
-//     siteList.classList.add('site-list--nav-closed');
-//   }
-// });
 
 
 // Валидация поля ввода телефона
@@ -39,34 +25,38 @@ $('input[type="tel"]').on('keyup', function (evt) {
 
 // Оптимизация вставки видео
 function findVideo() {
-  var video = document.querySelector('.video__container');
+  var video = $('.video__container');
 
   setupVideo(video);
 }
 
 function setupVideo(video) {
-  var link = document.querySelector('.video__link');
-  var button = document.querySelector('.video__button');
-
-  button.addEventListener('click', function () {
+  var link = $('.video__link').removeAttr('href');
+  var button = $('.video__button').on('click', function () {
     var iframe = createIframe();
-    var linkContainer = video.querySelector('.video__img-container');
+    video.find('.video__img-container').remove(link);
+    // var linkContainer = video.querySelector('.video__img-container');
 
-    linkContainer.removeChild(link);
-    video.removeChild(button);
-    video.appendChild(iframe);
+    // linkContainer.removeChild(link);
+    video.remove(button).append(iframe);
+    // video.appendChild(iframe);
   });
 
-  link.removeAttribute('href');
-  video.classList.add('video__container--enabled');
+  // link.removeAttr('href');
+  video.addClass('video__container--enabled');
 }
 
 function createIframe() {
-  var iframe = document.createElement('iframe');
+  var iframe = $('<iframe>', {
+    src: 'https://www.youtube.com/embed/KkVG8nCbPvU?rel=0&showinfo=0&autoplay=1',
+    allowfullscreen: ''
+  });
+  iframe.addClass('video__media');
+  // var iframe = document.createElement('iframe');
 
-  iframe.setAttribute('allowfullscreen', '');
-  iframe.setAttribute('src', 'https://www.youtube.com/embed/KkVG8nCbPvU?rel=0&showinfo=0&autoplay=1');
-  iframe.classList.add('video__media');
+  // iframe.setAttribute('allowfullscreen', '');
+  // iframe.setAttribute('src', 'https://www.youtube.com/embed/KkVG8nCbPvU?rel=0&showinfo=0&autoplay=1');
+  // iframe.classList.add('video__media');
 
   return iframe;
 }
