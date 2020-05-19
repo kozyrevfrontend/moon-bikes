@@ -25,13 +25,12 @@ navToggle.addEventListener('click', function () {
   }
 });
 
-// Валидация поля ввода телефона
-var inputPhone = document.querySelector('input[type="tel"]');
 
-inputPhone.onkeyup = function (evt) {
+// Валидация поля ввода телефона
+$('input[type="tel"]').on('keyup', function (evt) {
   var target = evt.target;
   target.value = this.value.replace(/[a-zA-Zа-яёА-ЯЁ]/g, '');
-};
+});
 
 
 // Оптимизация вставки видео
